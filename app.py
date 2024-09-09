@@ -68,6 +68,15 @@ with tab1:
         # Make prediction
         rainfall_prediction = rainfall_model.predict([[province_encoded_rainfall, forecast_month_rainfall]])
 
+        rainfall_value = rainfall_prediction[0]
+        if rainfall_value < 50:
+            category = "น้ำน้อย/แล้ง"
+        elif 50 <= rainfall_value < 100:
+            category = "ตกน้อย/ปานกลาง"
+        elif 100 <= rainfall_value < 200:
+            category = "ตกมาก"
+        else:
+            category = "ตกหนัก"
         # Store result in session state
         st.session_state.rainfall_result = annotated_text(
             "ปริมาณน้ำฝนในจังหวัด ", 
@@ -75,7 +84,8 @@ with tab1:
             " ในเดือน ", 
             (f"{forecast_month_thai_rainfall}", ""), 
             " : ", 
-            (f"{rainfall_prediction[0]:.2f} มม.", "", "#faf")
+            (f"{rainfall_prediction[0]:.2f} มม.", "", "#faf"),
+            (f"({category})", "", "#fcba03"), 
         )
         
     # Display stored result
