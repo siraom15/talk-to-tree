@@ -121,7 +121,7 @@ with tab3:
 
     # User inputs for rice prediction
     rain_mm = st.number_input('กรุณาเลือกปริมาณน้ำฝน (มม.)', min_value=0.0, max_value=1000.0, step=0.1, key='rice_rain')
-    tmax_tmax = st.number_input('กรุณาเลือกอุณหภูมิสูงสุด (°C)', min_value=-10.0, max_value=50.0, step=0.1, key='rice_tmax')
+    tmax_tmax = st.number_input('กรุณาเลือกอุณหภูมิสูงสุด (°C)', min_value=0.0, max_value=100.0, step=0.1, key='rice_tmax')
 
     if st.button('ทำนายชนิดข้าวที่ควรปลูก'):
         # Make prediction
