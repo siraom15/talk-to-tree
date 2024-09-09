@@ -143,11 +143,11 @@ with tab3:
                 
                 result_text = (
                     f"อันดับที่ {i+1})\n"
-                    f"ชนิดข้าว: {rice_name}\n"
+                    f"ชื่อข้าว: {rice_name}\n"
+                    f"ประเภทข้าว: {details.get('rice_type', 'N/A')}\n"
                     f"อายุเก็บเกี่ยว: {details.get('Harvesting_age', 'N/A')} วัน\n"
                     f"ผลผลิต: {details.get('Yield', 'N/A')} กก./ไร่\n"
                     f"คุณลักษณะเด่น: {details.get('Highlights', 'N/A')}\n"
-                    f"ประเภทข้าว: {details.get('rice_type', 'N/A')}\n"
                     f"ปริมาณน้ำฝน: {details.get('rain_mm', 'N/A'):.2f} มม."
                 )
                 results.append(
